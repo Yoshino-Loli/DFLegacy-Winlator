@@ -3,3 +3,4 @@ obj/
 *.log
 *.pdb
 .DS_Store
+dist/
