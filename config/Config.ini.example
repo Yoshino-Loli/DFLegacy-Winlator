@@ -1,0 +1,41 @@
+; DFLegacy 客户端配置
+; 本文件由 ijl15.dll 读取（放在 DNF.exe 同级目录）。
+; 注意：只保留 ASCII 键名与数值即可，注释用什么编码都不影响解析。
+
+[Resolution]
+; 客户端渲染固定为 640x480，Width/Height 只拉伸外层窗口。
+; 请保持 4:3，否则原版 UI 会变形。
+Width=1920
+Height=1080
+
+[Rendering]
+; 窗口拉伸时的纹理采样方式：
+;   native      关闭 IJL15 的采样钩子，用系统默认
+;   point       最近邻，像素边缘锐利
+;   linear      线性插值，接近原版观感
+;   anisotropic 各向异性
+ScaleFilter=native
+
+[Features]
+; 1/on/true 打开 FPS 与内存占用浮层
+EnablePerformanceOverlay=0
+; 1/on/true 启用鼠标滚轮钩子
+EnableMouseWheel=1
+
+[Launcher]
+; 启动引导开关。0 表示只做渲染增强，不注入参数、不拉服务端。
+Enabled=1
+; 端口未监听时自动拉起服务端
+AutoStartServer=1
+; 入口地址与端口，需与 server.json 的 Entrance 一致
+Host=127.0.0.1
+Port=2311
+; 自动登录用的账号密码（客户端会收到 99?host?port?account?password?... 参数）
+Account=test
+Password=test
+; 服务端可执行文件，相对 DNF.exe 所在目录
+ServerPath=DFLegacy.Server.exe
+; 等待服务端开始监听的最长秒数
+WaitSeconds=8
+; 1 = 客户端退出时用 Job Object 连带结束服务端
+KillServerOnExit=1
